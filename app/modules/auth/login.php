@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../../config/app.php';
 require_once __DIR__ . '/../../core/auth.php';
 require_once __DIR__ . '/../../core/session.php';
+require_once __DIR__ . '/../../helpers/url.php';
 
 redirectIfAuthenticated();
 
@@ -14,12 +15,12 @@ unset($_SESSION['authError'], $_SESSION['authSuccess'], $_SESSION['oldEmail']);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | <?= APP_NAME; ?></title>
-    <link rel="stylesheet" href="/EQF_ServiceHub/public/assets/css/global.css">
+    <link rel="stylesheet" href="<?= asset('css/global.css'); ?>">
 </head>
 <body>
     <main class="auth-page">
@@ -28,24 +29,24 @@ unset($_SESSION['authError'], $_SESSION['authSuccess'], $_SESSION['oldEmail']);
                 <div class="auth-brand-content">
                     <div>
                         <span class="auth-brand-chip">EQF ServiceHub</span>
-                        <h1 class="auth-brand-title">Centralized support and operational visibility.</h1>
+                        <h1 class="auth-brand-title">Soporte centralizado y visibilidad operativa.</h1>
                         <p class="auth-brand-text">
-                            Access your workspace, submit IT requests, track progress, and review key operational indicators from a single platform.
+                            Acceda a su espacio de trabajo, envíe solicitudes de TI, realice un seguimiento del progreso y revise indicadores operativos clave desde una única plataforma.
                         </p>
                     </div>
 
                     <div class="auth-brand-features">
                         <div class="auth-brand-card">
-                            <p class="auth-brand-card-title">Secure access</p>
+                            <p class="auth-brand-card-title">Acceso seguro</p>
                             <p class="auth-brand-card-text">
-                                Role-based entry, session control, and protected modules.
+                                Ingreso por rol, control de sesión y módulos protegidos.
                             </p>
                         </div>
 
                         <div class="auth-brand-card">
-                            <p class="auth-brand-card-title">Responsive design</p>
+                            <p class="auth-brand-card-title">Diseño responsivo</p>
                             <p class="auth-brand-card-text">
-                                Optimized for desktop first, with support for phones and tablets.
+                                Optimizado para escritorio, con soporte para teléfonos y tabletas.
                             </p>
                         </div>
                     </div>
@@ -55,10 +56,12 @@ unset($_SESSION['authError'], $_SESSION['authSuccess'], $_SESSION['oldEmail']);
             <div class="auth-form-panel">
                 <div class="auth-form-wrapper">
                     <div class="auth-header">
-                        <div class="auth-logo">SH</div>
+                        <div class="auth-logo">
+                            <img src="<?= asset('img/ServiceHub_logo.png'); ?>" alt="ServiceHub Logo">
+                        </div>
                         <h2 class="auth-title">BIENVENIDO</h2>
                         <p class="auth-subtitle">
-                            Inicia Sesion para continuar en <?= APP_NAME; ?>.
+                            Inicia sesión para continuar en <?= APP_NAME; ?>.
                         </p>
                     </div>
 
@@ -74,9 +77,8 @@ unset($_SESSION['authError'], $_SESSION['authSuccess'], $_SESSION['oldEmail']);
                         </div>
                     <?php endif; ?>
 
-                    <form action="processLogin.php" method="POST">
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email Corporativo</label>
+<form action="<?= route('process-login'); ?>" method="POST">                        <div class="form-group">
+                            <label for="email" class="form-label">Email corporativo</label>
                             <input
                                 id="email"
                                 name="email"
@@ -91,7 +93,7 @@ unset($_SESSION['authError'], $_SESSION['authSuccess'], $_SESSION['oldEmail']);
                         <div class="form-group">
                             <div class="form-row">
                                 <label for="password" class="form-label" style="margin-bottom: 0;">Contraseña</label>
-                                <a href="forgotPassword.php" class="link-primary">¿Olvidaste tu contraseña?</a>
+<a href="<?= route('forgot-password'); ?>" class="link-primary">¿Olvidaste tu contraseña?</a>
                             </div>
 
                             <div class="password-field">
@@ -109,10 +111,10 @@ unset($_SESSION['authError'], $_SESSION['authSuccess'], $_SESSION['oldEmail']);
 
                         <label class="form-check">
                             <input type="checkbox" name="rememberSession" value="1">
-                            <span>Mantener sesion activa</span>
+                            <span>Mantener sesión activa</span>
                         </label>
 
-                        <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+                        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
                     </form>
 
                     <p class="auth-footer">
@@ -123,6 +125,6 @@ unset($_SESSION['authError'], $_SESSION['authSuccess'], $_SESSION['oldEmail']);
         </section>
     </main>
 
-   <script src="/EQF_ServiceHub/public/assets/js/auth.js"></script>
+    <script src="<?= asset('js/auth.js'); ?>"></script>
 </body>
 </html>

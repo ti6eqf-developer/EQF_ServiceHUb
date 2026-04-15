@@ -1,4 +1,4 @@
 <?php
 
-header('Location: app/modules/auth/login.php');
+header('Location: public/index.php');
 exit;

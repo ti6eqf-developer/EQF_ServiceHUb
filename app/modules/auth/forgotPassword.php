@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../../config/app.php';
 require_once __DIR__ . '/../../core/session.php';
+require_once __DIR__ . '/../../helpers/url.php';
 
 $errorMessage = $_SESSION['authError'] ?? null;
 $successMessage = $_SESSION['authSuccess'] ?? null;
@@ -43,8 +44,8 @@ unset($_SESSION['authError'], $_SESSION['authSuccess'], $_SESSION['oldEmail']);
                         </div>
                     <?php endif; ?>
 
-                    <form action="processForgotPassword.php" method="POST">
-                        <div class="form-group">
+<form action="<?= route('process-forgot-password'); ?>" method="POST">}
+                            <div class="form-group">
                             <label for="email" class="form-label">Corporate email</label>
                             <input
                                 id="email"
@@ -60,7 +61,7 @@ unset($_SESSION['authError'], $_SESSION['authSuccess'], $_SESSION['oldEmail']);
                         <button type="submit" class="btn btn-primary">Send recovery request</button>
 
                         <div class="mt-16 text-center">
-                            <a href="login.php" class="link-primary">Back to login</a>
+<a href="<?= route('login'); ?>" class="link-primary">Back to login</a>
                         </div>
                     </form>
                 </div>

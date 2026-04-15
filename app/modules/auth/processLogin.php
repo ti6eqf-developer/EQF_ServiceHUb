@@ -16,8 +16,8 @@ $_SESSION['oldEmail'] = $email;
 
 if ($email === '' || $password === '') {
     $_SESSION['authError'] = 'Please complete all required fields.';
-    header('Location: login.php');
-    exit;
+    header('Location: ' . route('login'));
+exit;
 }
 
 try {
@@ -27,8 +27,8 @@ try {
 
     if (!$user || !password_verify($password, $user['password'])) {
         $_SESSION['authError'] = 'Incorrect credentials. Please verify your information.';
-        header('Location: login.php');
-        exit;
+        header('Location: ' . route('login'));
+exit;
     }
 
     $_SESSION['userId'] = $user['id'];
@@ -47,6 +47,6 @@ try {
     exit;
 } catch (PDOException $exception) {
     $_SESSION['authError'] = 'An error occurred while processing the login.';
-    header('Location: login.php');
-    exit;
+    header('Location: ' . route('login'));
+exit;
 }
