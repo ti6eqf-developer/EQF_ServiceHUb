@@ -3,8 +3,8 @@ const togglePasswordButton = document.getElementById('togglePassword');
 
 if (passwordInput && togglePasswordButton) {
     togglePasswordButton.addEventListener('click', () => {
-        const isPassword = passwordInput.type === 'password';
-        passwordInput.type = isPassword ? 'text' : 'password';
-        togglePasswordButton.textContent = isPassword ? 'Hide' : 'Show';
+        const isPasswordHidden = passwordInput.type === 'password';
+        passwordInput.type = isPasswordHidden ? 'text' : 'password';
+        togglePasswordButton.textContent = isPasswordHidden ? 'Hide' : 'Show';
     });
 }

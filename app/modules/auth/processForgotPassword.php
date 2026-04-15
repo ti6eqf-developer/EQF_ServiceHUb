@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../../core/session.php';
-require_once __DIR__ . '/../../core/connection.php';
+require_once __DIR__ . '/../../core/connectionDB.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: forgotPassword.php');
