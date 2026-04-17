@@ -36,17 +36,23 @@ unset($_SESSION['authError'], $_SESSION['authSuccess'], $_SESSION['oldEmail']);
                     </div>
 
                     <div class="auth-brand-features">
+                        <a href="https://portal-interno-eqf.com/moodle/login/index.php" target="_blank">
                         <div class="auth-brand-card">
-                            <p class="auth-brand-card-title">Acceso seguro</p>
+                            <p class="auth-brand-card-title">Portal Interno</p>
                             <p class="auth-brand-card-text">
-                                Ingreso por rol, control de sesión y módulos protegidos.
+                                
+                                    Accede a tu plan de capacitación y desarrollo interno.
                             </p>
+                            </a>
                         </div>
 
                         <div class="auth-brand-card">
-                            <p class="auth-brand-card-title">Diseño responsivo</p>
+                            <a href="https://eqf.com.mx/quienes-somos/" target="_blank">
+                            <p class="auth-brand-card-title">Conoce EQF</p>
                             <p class="auth-brand-card-text">
-                                Optimizado para escritorio, con soporte para teléfonos y tabletas.
+                                <a href="https://eqf.com.mx/quienes-somos/" target="_blank">
+                                Explora nuestra historia, misión y los valores que nos definen como equipo.
+                                </a>
                             </p>
                         </div>
                     </div>
